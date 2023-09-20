@@ -90,7 +90,27 @@ school_students = [
         {'first_name': 'Саша'},
     ],
 ]
-# ???
+
+dict_stud = {}  # для сбора данных по каждому классу
+
+for il in school_students:                              # внешний цикл по списку
+    dict_stud = {}                                      
+    for il_in in il:                                    # внутренний цикл по списку
+        if dict_stud.get(il_in['first_name']) == None:  # сразу решила обратиться к ключу, получить значение и проверить новый словарь
+            dict_stud[il_in['first_name']] = 1
+        else:
+            dict_stud[il_in['first_name']] = dict_stud[il_in['first_name']] + 1
+    
+    name_s_max = ''                                      # анализируем частое имя
+    cnt_max = 0
+    for key, val in dict_stud.items(): 
+        if cnt_max <= val: 
+           cnt_max = val
+           name_s_max = key
+                                                          # Выводим результат   
+    print(f'Самое частое имя в классе {school_students.index(il) + 1}: {name_s_max}')
+       
+
 
 
 # Задание 4
