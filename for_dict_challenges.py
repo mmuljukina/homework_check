@@ -131,7 +131,27 @@ is_male = {
     'Миша': True,
     'Даша': False,
 }
-# ???
+
+# Циклы циклы циклы:)
+for ish in school:
+    wrdcls = ''
+    cnt_mle = 0
+    cnt_fmle = 0
+    for key_sh, val_sh in ish.items():
+        if key_sh == 'class':
+            wrdcls = val_sh
+        if  key_sh == 'students':
+            for spk in val_sh:
+                for key_st, val_st in spk.items():
+                    for key_sml, val_sml in is_male.items():
+                        if key_sml == val_st and val_sml == True:
+                            cnt_mle = cnt_mle + 1
+                        if key_sml == val_st and val_sml == False:
+                            cnt_fmle = cnt_fmle + 1
+    print(f'Класс {wrdcls}: девочки {cnt_fmle}, мальчики {cnt_mle}')                        
+
+
+            
 
 
 # Задание 5
@@ -150,5 +170,29 @@ is_male = {
     'Олег': True,
     'Миша': True,
 }
-# ???
+
+dict_sch = {}
+
+# Подправим код от предыдущего:)
+for ish in school:
+    wrdcls = ''
+    cnt_mle = 0
+    cnt_fmle = 0
+    for key_sh, val_sh in ish.items():
+        if key_sh == 'class':
+            wrdcls = val_sh
+        if  key_sh == 'students':
+            for spk in val_sh:
+                for key_st, val_st in spk.items():
+                    for key_sml, val_sml in is_male.items():
+                        if key_sml == val_st and val_sml == True:
+                            cnt_mle = cnt_mle + 1
+                        if key_sml == val_st and val_sml == False:
+                            cnt_fmle = cnt_fmle + 1
+    if cnt_mle < cnt_fmle: 
+        dict_sch[f'Больше всего девочек в классе {wrdcls}'] = cnt_fmle
+    else:
+        dict_sch[f'Больше всего мальчиков в классе {wrdcls}'] = cnt_mle
+                         
+for key_p, val_p in dict_sch.items(): print(key_p, val_p)        
 
